@@ -10,7 +10,7 @@ public class JDBCConnection {
 		String USER = "root";
 		String PASS = "Rushi@1410";
 		Connection connection;
-		
+
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver Loaded!");
