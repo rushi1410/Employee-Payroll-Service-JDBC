@@ -1,12 +1,11 @@
 package com.bridgelabz;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.util.Enumeration;
 
 public class JDBCConnection {
-	public static void main(String[] args) {
+	public static Connection connectToDatabase() {
 		String URL = "jdbc:mysql://localhost:3306/payroll_service";
 		String USER = "root";
 		String PASS = "Rushi@1410";
@@ -20,20 +19,23 @@ public class JDBCConnection {
 
 		listDrivers();
 		try {
-			System.out.println("connecting to database: "+URL);
+			System.out.println("connecting to database: " + URL);
 			connection = DriverManager.getConnection(URL, USER, PASS);
-			System.out.println("connection is successful! "+connection);
-			connection.close();
+			System.out.println("connection is successful! " + connection);
+
+			return connection;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 	}
 
-	private static void listDrivers(){
-		Enumeration<Driver> driverList=DriverManager.getDrivers();
-		while (driverList.hasMoreElements()){
-			Driver driverClass=driverList.nextElement();
-			System.out.println(driverClass.getClass().getName()+" ");
+	private static void listDrivers() {
+		Enumeration<java.sql.Driver> driverList = DriverManager.getDrivers();
+		while (driverList.hasMoreElements()) {
+			java.sql.Driver driverClass = driverList.nextElement();
+			System.out.println(driverClass.getClass().getName() + " "); 
 		}
 	}
+
 }
