@@ -13,5 +13,8 @@ public class EmployeePayrollMain {
 
 		System.out.println("\nParticular Salary Data Range");
 		EmployeePayrollDBService.retrieveAllDataUsingPreparedStatemnt();
+		
+		System.out.println("\nDatabase Function For analysis By Gender");
+		employeePayrollService.getSumOfSalaryByMaleAndFemale();
 	}
 }

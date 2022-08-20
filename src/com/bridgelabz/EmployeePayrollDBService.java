@@ -64,4 +64,13 @@ public class EmployeePayrollDBService {
 			connection.rollback();
 		}
 	}
+	public void getSumOfSalaryByMaleAndFemale() throws SQLException {
+		Connection connection = JDBCConnection.connectToDatabase();
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery("SELECT gender, SUM(basic_pay) FROM employee_payroll GROUP BY gender;");
+		System.out.println("gender count SUM(basic_pay)");
+		while (resultSet.next()) {
+			System.out.println(resultSet.getString(1) + "\t" + resultSet.getInt(2) + "\t");
+		}
+	}
 }
