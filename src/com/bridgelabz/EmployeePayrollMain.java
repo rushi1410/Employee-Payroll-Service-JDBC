@@ -16,5 +16,8 @@ public class EmployeePayrollMain {
 		
 		System.out.println("\nDatabase Function For analysis By Gender");
 		employeePayrollService.getSumOfSalaryByMaleAndFemale();
+		
+		System.out.println("\nAdd New Employee");
+		employeePayrollService.addEmployee();
 	}
 }
